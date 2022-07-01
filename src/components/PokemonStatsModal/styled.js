@@ -42,6 +42,16 @@ export const ModalWrapper = styled.div`
     font-weight: 700;
   }
 
+  .pokemon__name-editable {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
   .pokemon__info-container {
     width: 80%;
   }

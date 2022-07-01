@@ -94,6 +94,13 @@ const MapPage = () => {
     }
   }
 
+  function updatePokemonName(id, name) {
+    const updatedPokemonList = pokemonList;
+    const pokemon = updatedPokemonList.find(el => el.id === id);
+    pokemon.name = name;
+    setPokemonList(updatedPokemonList);
+  }
+
   return (
     <>
       <S.MapWrapper className="map">
@@ -129,6 +136,7 @@ const MapPage = () => {
         pokemonData={pokemonData}
         addPokemonToList={addPokemonToList}
         removePokemonFromList={removePokemonFromList}
+        updatePokemonName={updatePokemonName}
       />
       <CreatePokemonModal
         isOpen={createPokemonModalIsOpen}

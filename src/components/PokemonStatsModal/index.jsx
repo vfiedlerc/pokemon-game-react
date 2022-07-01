@@ -1,12 +1,19 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { HiPencil } from 'react-icons/hi';
 
 import { ModalWrapper } from './styled';
 import pokeball from '../../assets/images/pokeball.png';
 
 Modal.setAppElement('#root')
 
-export const PokemonStatsModal = ({ pokemonStatsModalIsOpen, onRequestClose, pokemonData, addPokemonToList, removePokemonFromList }) => {
+export const PokemonStatsModal = ({ pokemonStatsModalIsOpen, onRequestClose, pokemonData, addPokemonToList, removePokemonFromList, updatePokemonName }) => {
+  function openUpdatePokemonName() {
+    const name = prompt('Nome');
+    updatePokemonName(pokemonData.id, name);
+    onRequestClose();
+  }
+
   function contents() {
     const actionButton = () => {
       if (pokemonData.captured) {
@@ -24,6 +31,21 @@ export const PokemonStatsModal = ({ pokemonStatsModalIsOpen, onRequestClose, pok
         <div className="pokeball" onClick={capturePokemon}>
           <img src={pokeball} alt="Pokeball" />
         </div>
+      )
+    }
+
+    const pokemonName = () => {
+      if (pokemonData.captured) {
+        return (
+          <div className="pokemon__name pokemon__name-editable" onClick={openUpdatePokemonName}>
+            <span>{pokemonData.name}</span>
+            <HiPencil />
+          </div>
+        )
+      }
+
+      return (
+        <div className="pokemon__name">{pokemonData.name}</div>
       )
     }
 
@@ -57,7 +79,7 @@ export const PokemonStatsModal = ({ pokemonStatsModalIsOpen, onRequestClose, pok
             </div>
           </div>
           <div className="pokemon__stats">
-            <div className="pokemon__name">{pokemonData.name}</div>
+            {pokemonName()}
             <div className="pokemon__info-container">
               <div className="pokemon__infos">
                 <div className="pokemon__info">
