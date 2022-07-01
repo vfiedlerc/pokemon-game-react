@@ -9,14 +9,25 @@ export const MapWrapper = styled.div`
   background-size: cover;
   height: 100vh;
 
-  .character {
+  .ash-container {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 
-    :hover {
-      cursor: pointer;
+    .balloon {
+      visibility: hidden;
+    }
+
+    .character {
+      :hover {
+        cursor: pointer;
+      }
     }
   }
 `;

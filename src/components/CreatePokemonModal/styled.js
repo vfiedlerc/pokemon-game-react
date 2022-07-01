@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ModalWrapper = styled.div`
   font-size: 1.8rem;
 
-  .pokemon__top {
+  .modal__header {
     background: linear-gradient(90deg, #43E97B 0%, #38F9D7 100%);
     height: 256px;
     padding-top: 32px;
@@ -20,97 +20,60 @@ export const ModalWrapper = styled.div`
       transform: translate(-50%, 0);
       width: 247px;
 
-      img {
-        width: 200px;
+      :hover {
+        cursor: pointer;
       }
     }
   }
 
-  .pokemon__stats {
+  .modal__body {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 
     background: #fff;
     border-radius: 24px;
     height: 406px;
-    padding: 162px 8px 0 8px;
+    padding: 162px 24px 0 24px;
     margin-top: -100px;
+    overflow-y: scroll;
   }
 
-  .pokemon__name {
-    font-weight: 700;
-  }
+  .input-group {
+    width: 100%;
+    margin-bottom: 1em;
 
-  .pokemon__info-container {
-    width: 80%;
-  }
+    label {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
 
-  .pokemon__infos {
-    display: flex;
-    /* justify-content: space-between; */
-    padding: 42px 0;
-    border-bottom: 1px solid #C5CEE0;
-  }
-
-  .pokemon__info {
-    text-align: center;
-    width: 33%;
-
-    + .pokemon__info {
-      border-left: 1px solid #C5CEE0;
+    input,
+    select {
+      height: 48px;
+      border: 1px solid #ccc;
+      padding: 12px 12px;
+      width: 100%;
     }
   }
 
-  .pokemon__info-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 16px;
-  }
-
-  .pokemon__info-value {
-    font-weight: 700;
-    font-size: 1.8rem;
-    line-height: 24px;
-  }
-
-  .pokemon__types {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    padding-top: 40px;
-  }
-
-  .pokemon__type {
-    background: #67AF32;
-    border-radius: 42px;
-    color: #fff;
-    padding: 0.75em 2em;
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 16px;
+  .modal__title {
+    width: 100%;
     text-align: center;
-  }
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
 
-  .pokeball {
-    position: absolute;
-    left: 50%;
-    bottom: 40px;
-    transform: translate(-50%, 0);
-
-    filter: drop-shadow(0px 0px 1px rgba(9, 30, 66, 0.31)) drop-shadow(0px 20px 32px rgba(9, 30, 66, 0.25));
-
-    :hover {
-      cursor: pointer;
+    span {
+      background:#fff;
+      padding:0 10px;
     }
   }
 
-  .pokemon__free-btn {
-    position: absolute;
-    left: 50%;
-    bottom: 65px;
-    transform: translate(-50%, 0);
-
+  .modal__button {
     background: #FF3D71;
     border: none;
     border-radius: 42px;
@@ -119,6 +82,7 @@ export const ModalWrapper = styled.div`
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 24px;
+    margin: 0 auto 35px auto;
     text-align: center;
     text-decoration: none;
     padding: 16px 24px;

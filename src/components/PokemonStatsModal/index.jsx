@@ -27,6 +27,27 @@ export const PokemonStatsModal = ({ pokemonStatsModalIsOpen, onRequestClose, pok
       )
     }
 
+    const ptbrTypes = {
+      normal: 'Normal',
+      fire: 'Fogo',
+      water: 'Água',
+      grass: 'Grama',
+      eletric: 'Elétrico',
+      ice: 'Gelo',
+      fighting: 'Lutador',
+      poison: 'Veneno',
+      ground: 'Terra',
+      flying: 'Voador',
+      psychic: 'Psíquico',
+      bug: 'Inseto',
+      rock: 'Pedra',
+      ghost: 'Fantasma',
+      dark: 'Sombrio',
+      dragon: 'Dragão',
+      steel: 'Ferro',
+      fairy: 'Fada',
+    }
+
     if (Object.keys(pokemonData).length) {
       return (
         <>
@@ -55,7 +76,7 @@ export const PokemonStatsModal = ({ pokemonStatsModalIsOpen, onRequestClose, pok
               <div className="pokemon__types">
                 {pokemonData.types.map((type, index) => {
                   return (
-                    <div key={index} className="pokemon__type">{type}</div>
+                    <div key={index} className="pokemon__type">{ptbrTypes[type]}</div>
                   )
                 })}
               </div>

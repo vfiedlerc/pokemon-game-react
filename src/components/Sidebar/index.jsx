@@ -6,7 +6,7 @@ import iconPlus from "assets/images/plus.png";
 
 import * as S from "./styled";
 
-const Sidebar = ({ pokemonList, setPokemonData, setPokemonStatsModalIsOpen}) => {
+const Sidebar = ({ pokemonList, setPokemonData, setPokemonStatsModalIsOpen, handleOpenCreatePokemonModal }) => {
   function contents() {
     if (pokemonList.length) {
       return pokemonList.map((pokemonData, index) => {
@@ -43,7 +43,7 @@ const Sidebar = ({ pokemonList, setPokemonData, setPokemonStatsModalIsOpen}) => 
       <S.SideBarList>
         {contents()}
       </S.SideBarList>
-      <Button icon={iconPlus} />
+      <Button icon={iconPlus} onClick={handleOpenCreatePokemonModal} />
     </S.SideBarWrapper>
   );
 };
